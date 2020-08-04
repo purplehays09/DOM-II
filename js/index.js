@@ -34,9 +34,24 @@ imgs.forEach(img => {
 })
 let navButtons = document.querySelectorAll('nav a')
 
-let sunButton = document.querySelector('.btn:nth-of-type(1)');
-let mountainButton = document.querySelector('.btn:nth-of-type(2)');
-let islandButton = document.querySelector('.btn:nth-of-type(3)');
+let buttons = document.querySelectorAll('.btn');
+// let mountainButton = document.querySelector('.btn:nth-of-type(2)');
+// let islandButton = document.querySelector('.btn:nth-of-type(3)');
+
+let area = document.querySelector('.destination h4')
+let foot = document.querySelector('footer p')
+
+// ____________________________________________________________________________________
+// ____________________________________________________________________________________
+// ____________________________________________________________________________________
+
+area.addEventListener('dblclick', event =>{
+    if (event.target.style.fontSize === '10rem'){
+        event.target.style.fontSize = '2.3rem'
+    }else{
+        event.target.style.fontSize = '10rem';
+    }
+})
 
 // // debugger
 // function hoverButton(event){
@@ -80,13 +95,12 @@ function zoom(event) {
 
 
 function logSelection(event) {
-    const log = document.getElementById('log');
     const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
-    log.textContent = `You selected: ${selection}`;
+    input.textContent = `You selected: ${selection}`;
   }
   
     // const input = document.querySelector('input');
-    input.addEventListener('select', logSelection);
+    words.addEventListener('select', logSelection);
         
     // words.addEventListener('select', event => {
     //     const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
@@ -94,3 +108,18 @@ function logSelection(event) {
 // })
 
 
+
+document.addEventListener('keydown', event => {
+    if(event.key === 'd'){
+        buttons.forEach(button =>{
+            button.style.backgroundColor = 'white';
+            button.style.border = '1px solid white'
+        })
+         
+        }
+})
+
+input.addEventListener('focus', event => input.style.backgroundColor = 'pink')
+
+
+document.addEventListener('load', event => foot.style.backgroundColor = 'red')
